@@ -1,0 +1,7 @@
+<launch>
+  <node name = "thruster_dynamic" pkg = "usg" type = "thruster_dynamic.py" output = "screen">
+    <!-- <param name = "pwm_thruster" value = "100"/>
+    <param name = "duration_thruster" value = "3" /> -->
+  </node>
+
+</launch>

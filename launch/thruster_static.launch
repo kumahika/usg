@@ -1,0 +1,6 @@
+<launch>
+  <node name = "thruster" pkg = "usg" type = "thruster_static.py" output = "screen">
+    <param name = "flag_vel" value = "2" />
+  </node>
+
+</launch>
