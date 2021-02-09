@@ -1,26 +1,26 @@
-# usg package
+# Underwater Suction Gripper (USG) package
 This is a ROS package for controlling the USG.
 
-# 0. Video clips
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FSWc5AsxabE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+# 0. Dependency
+- Ubuntu 16.04, 18.04 (Debugged)
+- ROS kinetic, melodic (Debugged)
 
 # 1. Features
-- Constant output of thrust.
-- Continuous output of thrust.
+- **Constant** output of thrust.
+- **Continuous** output of thrust.
 
 **Thruster (Continuous control by DS4)**
-![thruster](https://github.com/kumahika/usg/blob/master/img/continous_control.gif)
+![Thruster](img/continous_control.gif)
 
 # 2. Installation
-
 ## 2.1 Hardware
-This package assumes connecting a thruster and gripper to **Rasberry Pi GPIO**.
+This package assumes connecting a thruster and gripper to **Raspberry Pi GPIO**.
 Please refer to the following sites for parts installation and circuit wiring.
 - Thruster (use 13pin)
   - https://bluerobotics.com/store/thrusters/t200-thruster/
 
 EX) Thruster circuit
-![ex](https://github.com/kumahika/usg/blob/master/img/USM%20unit.png)
+![ex](img/USM%20unit.png)
 
 ## 2.2 Software
 **Step1 Make the raspi storage to a new SD card**
@@ -65,12 +65,13 @@ $ chmod +x thruster_static.py
 ```
 
 # 3. ROS API (Usage)
-## Nodes
+## 3.1 Nodes
 - `thruster_static` node
  This node can control a thruster by static output.
  The output is fixed according to the rotation speed by adjusting the parameters.
 
-<img src="https://github.com/kumahika/usg/blob/master/img/thrust.png" width="400"><img src="https://github.com/kumahika/usg/blob/master/img/spec.png" width="400">
+
+<img src="img/thrust.png" width="350"><img src="img/spec.png" width="350">
 
 - `thruster_dynamic` node
 
@@ -97,13 +98,13 @@ $ roslaunch usg thruster_dynamic.launch
 <img src="https://github.com/naoki-sh/ruri/blob/master/img/simple_controller.png" width="750">
 -->
 
-## Topics
+## 3.2 Topics
 - thruster/pwm (std_msgs/int64) : Sequential commands
   - Stop : 0
   - Incriment : 1
   - Decriment : 2
 
-## Prameters
+## 3.3 Prameters
 - /thruster/flag_vel (int, default: 2) : The command for the desired thrust (see table above)
 
 EX)
@@ -111,7 +112,17 @@ EX)
 $ rosparam set /thruster/flag_vel '2'
 ```
 
+# Publication
+- Hikaru Kumamoto, Naoki Shirakura, Jun Takamatsu and Tsukasa Ogasawara:"Underwater Suction Gripper for Object Manipulation with an Underwater Robot," In proceedings of IEEE International Conference on Mechatronics 2021 (ICM2021), 2021 (Preprint)
+
+# Appendix
+- Video Clips ([YouTube](https://youtube.com/playlist?list=PLjGy5E68X9kCcfHyGMgnrMzXNDp-tnRuC))
+
+- 3D Model ([stl files](model))
+
 # Author/Contributors
+Please feel free to ask any questions and comments!
+
 [Hikaru Kumamoto](https://kumahika.github.io/research/)
 
 [Naoki Shirakura](https://github.com/naoki-sh)   
